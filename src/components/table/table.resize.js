@@ -25,7 +25,7 @@ export function resizeHandler(event, $root) {
       $parent.css({width: value + 'px'})
       $resizer.css({right: '0'})
       $root.findAll(`[data-col="${$parent.data.col}"]`)
-        .forEach(cell => cell.style.width = value + 'px');
+        .forEach($cell => $cell.css({width: value + 'px'}))
     } else {
       $resizer.css({bottom: '0'})
       $parent.css({height: value + 'px'})
