@@ -11,7 +11,9 @@ export class TableSelection {
     this.group.push($el)
     $el.focus().addClass(TableSelection.classNameSelected)
   }
-
+  get IDs() {
+    return this.group.map($el => $el.id())
+  }
   clear() {
     if (this.current) {
       this.current.removeClass(TableSelection.classNameSelected)
@@ -27,5 +29,8 @@ export class TableSelection {
     this.group = $group
     this.group.forEach($el => $el.addClass('selected-group'))
 
+  }
+  applyStyle(style) {
+    this.group.forEach($el => $el.css(style))
   }
 }
